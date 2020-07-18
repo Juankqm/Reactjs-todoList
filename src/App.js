@@ -5,7 +5,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 //importing components
 import TodoList from './components/todoList/index'
 //importing uuid
-import uuid from 'uuid'
+// import uuid from 'uuid'
 //importing bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 
