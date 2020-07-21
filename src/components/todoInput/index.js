@@ -17,11 +17,14 @@ export default class TodoInput extends Component {
               type="text"
               placeholder="add a new Task"
               value={item}
-              onChange={handleChange}
+              onChange={handleChange}            
             />
           </div>
           <button
             type="submit"
+            disabled={
+              item? false:true
+            }
             className={
               editItem
                 ? "btn btn-block btn-success mt-3 text-capitalize"
