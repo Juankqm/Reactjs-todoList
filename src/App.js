@@ -11,27 +11,34 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 export default class App extends Component {
   state = {
-    items: [
-      {
-        id: 1,
-        title: "wake up",
-      },
-      {
-        id: 2,
-        title: "make breakfast",
-      },
-    ],
+    items: [],
     id: uuidv4(),
     item: "",
     editItem: false,
   };
 
 handleChange = (e) =>{
-  console.log("Handle Change");
+  this.setState({
+    item: e.target.value
+  })
+
 }
 handleSubmit = (e) =>{
   e.preventDefault()
-  console.log("Handle Submit");
+   const newItem = {
+     id:this.state.id,
+     title:this.state.item
+   }
+   const updateditems = [...this.state.items,newItem]
+
+   this.setState({
+      items:updateditems,
+      item:'',
+      id:uuidv4(),
+      editItem:false
+   },()=>console.log(this.state))
+ 
+ 
 }
 
 handleDelete = (id) =>{

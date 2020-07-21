@@ -1,15 +1,17 @@
-import React, { Component } from 'react'
-
+import React, { Component } from "react";
 
 export default class TodoList extends Component {
+  render() {
+    // const { items, handleClearList, handleDelete, handleEdit } = this.props;
 
-    render() {
-        const {items,handleClearList, handleDelete, handleEdit} = this.props
-        
-        return (
-            <div>
+    return (
+      <div>
+          <ul>
+           {
             
-            </div>
-        )
-    }
+           }
+          </ul>
+      </div>
+    );
+  }
 }
