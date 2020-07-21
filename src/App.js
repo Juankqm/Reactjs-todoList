@@ -42,7 +42,7 @@ handleSubmit = (e) =>{
 }
 
 handleDelete = (id) =>{
-  console.log("handle Delete");
+ console.log("item Deleted");
 }
 
 handleEdit = (id) =>{
@@ -51,6 +51,10 @@ handleEdit = (id) =>{
 
 handleClearList= () =>{
   console.log("Clear List");
+  this.setState({
+    items:[]
+  })
+
 }
 handleClick = () =>{
   console.log("You've clicked on me");
@@ -69,7 +73,7 @@ handleClick = () =>{
               editItem={this.handleEdit}
               handleClick={this.handleClick}
             />
-               <h3 className="text-capitalize text-center">Todo List</h3>
+            
             <TodoList
               items={this.state.items}
               handleClearList={this.handleClearList}
