@@ -29,16 +29,13 @@ export default class App extends Component {
       title: this.state.item,
     };
     const updateditems = [...this.state.items, newItem];
-    
-      this.setState(
-        {
-          items: updateditems,
-          item: "",
-          id: uuidv4(),
-          editItem: false,
-        }
-      );
-    
+
+    this.setState({
+      items: updateditems,
+      item: "",
+      id: uuidv4(),
+      editItem: false,
+    });
   };
 
   handleDelete = (id) => {
@@ -48,17 +45,16 @@ export default class App extends Component {
     });
   };
 
-  handleEdit = id => {
+  handleEdit = (id) => {
     const filteredList = this.state.items.filter((item) => item.id !== id);
-    const selectedItem = this.state.items.find((item) => item.id === id)
-    
-    this.setState({
-      items:filteredList,
-      item:selectedItem.title,
-      id:id,
-      editItem:true
-    })
+    const selectedItem = this.state.items.find((item) => item.id === id);
 
+    this.setState({
+      items: filteredList,
+      item: selectedItem.title,
+      id: id,
+      editItem: true,
+    });
   };
 
   handleClearList = () => {
