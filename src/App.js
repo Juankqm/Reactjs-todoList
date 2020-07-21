@@ -29,20 +29,16 @@ export default class App extends Component {
       title: this.state.item,
     };
     const updateditems = [...this.state.items, newItem];
-    try {
+    
       this.setState(
         {
           items: updateditems,
           item: "",
           id: uuidv4(),
           editItem: false,
-        },
-        () => console.log(this.state)
+        }
       );
-      alert("Item Addes successfully");
-    } catch (e) {
-      alert(`Error ${e}`);
-    }
+    
   };
 
   handleDelete = (id) => {
@@ -52,34 +48,38 @@ export default class App extends Component {
     });
   };
 
-  handleEdit = (id) => {
-    console.log("handle Edit");
+  handleEdit = id => {
+    const filteredList = this.state.items.filter((item) => item.id !== id);
+    const selectedItem = this.state.items.find((item) => item.id === id)
+    
+    this.setState({
+      items:filteredList,
+      item:selectedItem.title,
+      id:id,
+      editItem:true
+    })
+
   };
 
   handleClearList = () => {
-    console.log("Clear List");
     this.setState({
       items: [],
     });
   };
-  handleClick = () => {
-    console.log("You've clicked on me");
-  };
 
   render() {
+    console.log(this.state);
     return (
       <div className="container">
         <div className="row">
           <div className="col-10 mx-auto col-md-8 mt-5">
-            <h3 className="text-capitalize text-center">Todo Input</h3>
+            <h3 className="text-capitalize text-center">Tasks maker</h3>
             <TodoInput
               item={this.state.item}
               handleChange={this.handleChange}
               handleSubmit={this.handleSubmit}
-              editItem={this.handleEdit}
-              handleClick={this.handleClick}
+              editItem={this.state.editItem}
             />
-
             <TodoList
               items={this.state.items}
               handleClearList={this.handleClearList}

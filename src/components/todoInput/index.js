@@ -2,31 +2,36 @@ import React, { Component } from "react";
 
 export default class TodoInput extends Component {
   render() {
-    const { item, handleChange, handleSubmit } = this.props;
+    const { item, handleChange, handleSubmit, editItem } = this.props;
     return (
       <div className="card card-body my-3">
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <div className="input-group-prepend">
               <div className="input-group-text bg-primary text-white">
-                <i className="fas fa-book"/>
+                <i className="fas fa-book" />
               </div>
             </div>
-            <input 
-            className="form-control text-capitalize" 
-            type="text" 
-            placeholder="add todo item"
-            value={item}
-            onChange={handleChange}
+            <input
+              className="form-control text-capitalize"
+              type="text"
+              placeholder="add a new Task"
+              value={item}
+              onChange={handleChange}
             />
           </div>
-          <button type="submit" className="btn btn-block btn-primary mt-3 text-capitalize">
-            Add Item
+          <button
+            type="submit"
+            className={
+              editItem
+                ? "btn btn-block btn-success mt-3 text-capitalize"
+                : "btn btn-block btn-primary mt-3 text-capitalize"
+            }
+          >
+            {editItem ? "Edit" : "Add"}
           </button>
         </form>
       </div>
     );
   }
 }
-
-
