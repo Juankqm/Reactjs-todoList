@@ -47,8 +47,6 @@ export default class App extends Component {
 
   handleDelete = (id) => {
     const filteredList = this.state.items.filter((item) => item.id !== id);
-    const answer = window.confirm("Are you sure to delete this item?");
-
     this.setState({
       items: filteredList,
     });
